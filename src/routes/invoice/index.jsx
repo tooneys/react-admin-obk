@@ -1,13 +1,10 @@
 import { Box, Typography, useTheme } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 import { tokens } from '../../theme';
-import { mockDataTeam } from '../../data/mockData';
-import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettingsOutlined';
-import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
-import SecurityOutlinedIcon from '@mui/icons-material/SecurityOutlined';
+import { mockDataInvoices } from '../../data/mockData';
 import Header from '../../components/header';
 
-const Team = () => {
+const Invoices = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const columns = [
@@ -16,13 +13,6 @@ const Team = () => {
       field: 'name',
       headerName: '이름',
       flex: 1,
-      cellClassname: 'name-column--cell',
-    },
-    {
-      field: 'age',
-      headerName: '나이',
-      haederAlign: 'left',
-      align: 'left',
       cellClassname: 'name-column--cell',
     },
     {
@@ -38,39 +28,26 @@ const Team = () => {
       cellClassname: 'name-column--cell',
     },
     {
-      field: 'access',
-      headerName: 'Access Level',
-      headerAlign: 'center',
+      field: 'cost',
+      headerName: 'Cost',
       flex: 1,
-      renderCell: ({ row: { access } }) => {
-        return (
-          <Box
-            width={'60%'}
-            m="0 auto"
-            p="5px"
-            display="flex"
-            justifyContent="center"
-            backgroundColor={
-              access === 'admin'
-                ? colors.greenAccent[600]
-                : colors.greenAccent[700]
-            }
-            borderRadius={'4px'}
-          >
-            {access === 'admin' && <AdminPanelSettingsOutlinedIcon />}
-            {access === 'manager' && <SecurityOutlinedIcon />}
-            {access === 'user' && <LockOpenOutlinedIcon />}
-            <Typography color={colors.grey[100]} sx={{ ml: '5px' }}>
-              {access}
-            </Typography>
-          </Box>
-        );
-      },
+      renderCell: (params) => (
+        <Typography color={colors.greenAccent[500]}>
+          ${params.row.cost}
+        </Typography>
+      ),
+    },
+    {
+      field: 'date',
+      headerName: '날짜',
+      haederAlign: 'left',
+      align: 'left',
+      cellClassname: 'name-column--cell',
     },
   ];
   return (
     <Box m="20px">
-      <Header title="TEAM" subtitle={'Managing the Team Members'}></Header>
+      <Header title="INVOICES" subtitle={'List of Invoice Balance'}></Header>
       <Box
         m="40px 0 0 0 "
         height={'75vh'}
@@ -95,12 +72,15 @@ const Team = () => {
             borderTop: 'none',
             backgroundColor: colors.blueAccent[700],
           },
+          '& .MuiCheckbox-root': {
+            color: `${colors.greenAccent[200]} !important`,
+          },
         }}
       >
-        <DataGrid rows={mockDataTeam} columns={columns} />
+        <DataGrid checkboxSelection rows={mockDataInvoices} columns={columns} />
       </Box>
     </Box>
   );
 };
 
-export default Team;
+export default Invoices;
