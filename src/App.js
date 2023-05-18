@@ -5,12 +5,12 @@ import Team from './routes/team';
 import Invoices from './routes/invoice';
 import Contacts from './routes/contacts';
 import Form from './routes/form';
+import Calendar from './routes/calendar';
+import FAQ from './routes/faq';
 // import Bar from './routes/bar';
 // import Line from './routes/line';
 // import Pie from './routes/pie';
-// import FAQ from './routes/faq';
 // import Geography from './routes/geography';
-import Calendar from './routes/calendar';
 
 import { ColorModeContext, useMode } from './theme';
 import { CssBaseline, ThemeProvider } from '@mui/material';
@@ -33,12 +33,12 @@ function App() {
               <Route path="/contacts" element={<Contacts />}></Route>
               <Route path="/invoice" element={<Invoices />}></Route>
               <Route path="/form" element={<Form />}></Route>
-              {/* <Route path="/bar" elements={<Bar />}></Route> */}
-              {/* <Route path="/pie" elements={<Pie />}></Route> */}
-              {/* <Route path="/line" elements={<Line />}></Route> */}
-              {/* <Route path="/faq" elements={<FAQ />}></Route> */}
-              {/* <Route path="/geography" elements={<Geography />}></Route> */}
               <Route path="/calendar" element={<Calendar />}></Route>
+              <Route path="/faq" element={<FAQ />}></Route>
+              {/* <Route path="/bar" elements{<Bar />}></Route> */}
+              {/* <Route path="/pie" element={<Pie />}></Route> */}
+              {/* <Route path="/line" element={<Line />}></Route> */}
+              {/* <Route path="/geography" element={<Geography />}></Route> */}
             </Routes>
           </main>
         </div>

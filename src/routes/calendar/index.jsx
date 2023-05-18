@@ -53,6 +53,7 @@ const Calendar = () => {
     <Box m={'20px'}>
       <Header title={'CALENDAR'} subtitle={'Full Calendar Interative Page'} />
       <Box display={'flex'} justifyContent={'space-between'}>
+        {/* Calendar Sidebar */}
         <Box
           flex={'1 1 20%'}
           backgroundColor={colors.primary[400]}
@@ -74,14 +75,11 @@ const Calendar = () => {
                   primary={event.title}
                   secondary={
                     <Typography>
-                      {
-                        (formatDate(event.start),
-                        {
-                          year: 'numeric',
-                          month: 'short',
-                          day: 'numeric',
-                        })
-                      }
+                      {formatDate(event.start, {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric',
+                      })}
                     </Typography>
                   }
                 />
@@ -101,7 +99,7 @@ const Calendar = () => {
               listPlugin,
             ]}
             headerToolbar={{
-              left: 'prev, next today',
+              left: 'prev next today',
               center: 'title',
               right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth',
             }}
@@ -117,14 +115,12 @@ const Calendar = () => {
               {
                 id: '12134',
                 title: 'all-day evevnt',
-                start: '2023-05-02',
-                end: '2023-05-02',
+                date: '2023-05-02',
               },
               {
                 id: '41311',
                 title: 'Timed evevnt',
-                start: '2023-05-13',
-                end: '2023-05-13',
+                date: '2023-05-13',
               },
             ]}
           />
