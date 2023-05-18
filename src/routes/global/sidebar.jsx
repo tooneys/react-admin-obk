@@ -16,7 +16,6 @@ import BarChartOutlinedIcon from '@mui/icons-material/BarChartOutlined';
 import PieChartOutline from '@mui/icons-material/PieChartOutlineOutlined';
 import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
-import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 
 // Menu Item
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -208,13 +207,6 @@ const SideBar = () => {
               title={'Line Chart'}
               to="/line"
               icon={<TimelineOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title={'Geography Chart'}
-              to="/geography"
-              icon={<MapOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
